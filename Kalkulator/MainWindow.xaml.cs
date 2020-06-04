@@ -27,9 +27,7 @@ namespace Kalkulator
         {
             InitializeComponent();
         }
-        /// <summary>
-        /// Funkcja pozwala na nacisnanie przycisku w kalkulatorze (wprowadzenie cyfr oraz znaku ".")
-        /// </summary>
+        /** Funkcja pozwala na nacisnanie przycisku w kalkulatorze (wprowadzenie cyfr oraz znaku ".")*/
         /// <param name="sender">Parametr , który odwoluje się do obiektu.</param>
         /// <param name="e">Parametr zawierający informację o wydarzeniu(wyświetlienie informacji).</param>
         public void Number_Click(object sender, RoutedEventArgs e)
@@ -49,18 +47,18 @@ namespace Kalkulator
                 textBlock.Text = textBlock.Text + (string)num.Content;
         }
 
-        /// <summary>
-        /// Funkcja która oczyszcza całą zawartość elementu TextBlock od zamieszczonej w nim informacji.
-        /// </summary>
+        
+        /** Funkcja która oczyszcza całą zawartość elementu TextBlock od zamieszczonej w nim informacji.*/
+        
         /// <param name="sender">Parametr , który odwoluje się do obiektu.</param>
         /// <param name="e">Parametr zawierający informację o wydarzeniu(wyświetlienie informacji).</param>
         public void Clear_Click(object sender, RoutedEventArgs e)
         {
             textBlock.Text = "0";
         }
-        /// <summary>
-        /// Funkcja która usuwa ostatni element z ciągu znaków zawartych w elemencie TextBlock.
-        /// </summary>
+        
+        /** Funkcja która usuwa ostatni element z ciągu znaków zawartych w elemencie TextBlock.*/
+        
         /// <param name="sender">Parametr , który odwoluje się do obiektu.</param>
         /// <param name="e">Parametr zawierający informację o wydarzeniu(wyświetlienie informacji).</param>
         public void Single_Clear_Click(object sender, RoutedEventArgs e)
@@ -70,9 +68,9 @@ namespace Kalkulator
             if(textBlock.Text == "")
                 textBlock.Text = "0";
         }
-        /// <summary>
-        /// Funkcja która wylicza podstawowe funkcje matematyczne jednego argumentu lub określa funkcje matematyczne dwóch argumentów (pracuje w kombinacji z Eaquals_Click()) w zależności od operacji.
-        /// </summary>
+        
+        /** Funkcja która wylicza podstawowe funkcje matematyczne jednego argumentu lub określa funkcje matematyczne dwóch argumentów (pracuje w kombinacji z Eaquals_Click()) w zależności od operacji.*/
+        
         /// <param name="sender">Parametr , który odwoluje się do obiektu.</param>
         /// <param name="e">Parametr zawierający informację o wydarzeniu(wyświetlienie informacji).</param>
         public void Basic_Arithmetic_Click(object sender, RoutedEventArgs e)
@@ -111,9 +109,9 @@ namespace Kalkulator
             else
                 label.Content = System.Convert.ToString(result) + " " + operation;
         }
-        /// <summary>
-        /// Funkcja która wylicza podstawowe funkcje matematyczne dwóch argumentów.
-        /// </summary>
+        
+        /** Funkcja która wylicza podstawowe funkcje matematyczne dwóch argumentów.*/
+
         /// <param name="sender">Parametr , który odwoluje się do obiektu.</param>
         /// <param name="e">Parametr zawierający informację o wydarzeniu(wyświetlienie informacji).</param>
         public void Eaquals_Click(object sender, RoutedEventArgs e)
