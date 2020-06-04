@@ -18,9 +18,9 @@ namespace Kalkulator
 {
     public partial class MainWindow : Window
     {
-        Double result = 0; 
-        string operation = "";
-        bool enter_value = false;
+        public Double result = 0; 
+        public string operation = "";
+        public bool enter_value = false;
 
         public MainWindow()
         {
@@ -31,7 +31,7 @@ namespace Kalkulator
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Number_Click(object sender, RoutedEventArgs e)
+        public void Number_Click(object sender, RoutedEventArgs e)
         {
             if ((textBlock.Text == "0") || (enter_value))
                 textBlock.Text = "";
@@ -48,12 +48,12 @@ namespace Kalkulator
                 textBlock.Text = textBlock.Text + (string)num.Content;
         }
 
-        private void Clear_Click(object sender, RoutedEventArgs e)
+        public void Clear_Click(object sender, RoutedEventArgs e)
         {
             textBlock.Text = "0";
         }
 
-        private void Single_Clear_Click(object sender, RoutedEventArgs e)
+        public void Single_Clear_Click(object sender, RoutedEventArgs e)
         {
             if(textBlock.Text.Length > 0)
                 textBlock.Text = textBlock.Text.Remove(textBlock.Text.Length - 1, 1);
@@ -61,7 +61,7 @@ namespace Kalkulator
                 textBlock.Text = "0";
         }
 
-        private void Basic_Arithmetic_Click(object sender, RoutedEventArgs e)
+        public void Basic_Arithmetic_Click(object sender, RoutedEventArgs e)
         {
             Button num = (Button)sender;
             operation = (string)num.Content;
@@ -98,7 +98,7 @@ namespace Kalkulator
                 label.Content = System.Convert.ToString(result) + " " + operation;
         }
 
-        private void Eaquals_Click(object sender, RoutedEventArgs e)
+        public void Eaquals_Click(object sender, RoutedEventArgs e)
         {
             label.Content = "";
 
