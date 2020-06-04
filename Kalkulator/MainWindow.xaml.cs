@@ -18,19 +18,20 @@ namespace Kalkulator
 {
     public partial class MainWindow : Window
     {
-        public Double result = 0; 
-        public string operation = "";
-        public bool enter_value = false;
+
+        public Double result = 0;         /**< zmienna do której jest zapisywany resultat obliczeń */
+        public string operation = "";     /**< zmienna która chroni informacje o bieżącej operacji */
+        public bool enter_value = false;  /**< zmienna która określa stan operacji: stan 'true' jeżeli zakończona lub stan 'false' jeżeli jest w trakcie działania obliczeń */
 
         public MainWindow()
         {
             InitializeComponent();
         }
         /// <summary>
-        /// Funkcja pozwala na nacisnanie przycisku w kalkulatorze
+        /// Funkcja pozwala na nacisnanie przycisku w kalkulatorze (wprowadzenie cyfr oraz znaku ".")
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">Parametr , który odwoluje się do obiektu.</param>
+        /// <param name="e">Parametr zawierający informację o wydarzeniu(wyświetlienie informacji).</param>
         public void Number_Click(object sender, RoutedEventArgs e)
         {
             if ((textBlock.Text == "0") || (enter_value))
@@ -48,11 +49,20 @@ namespace Kalkulator
                 textBlock.Text = textBlock.Text + (string)num.Content;
         }
 
+        /// <summary>
+        /// Funkcja która oczyszcza całą zawartość elementu TextBlock od zamieszczonej w nim informacji.
+        /// </summary>
+        /// <param name="sender">Parametr , który odwoluje się do obiektu.</param>
+        /// <param name="e">Parametr zawierający informację o wydarzeniu(wyświetlienie informacji).</param>
         public void Clear_Click(object sender, RoutedEventArgs e)
         {
             textBlock.Text = "0";
         }
-
+        /// <summary>
+        /// Funkcja która usuwa ostatni element z ciągu znaków zawartych w elemencie TextBlock.
+        /// </summary>
+        /// <param name="sender">Parametr , który odwoluje się do obiektu.</param>
+        /// <param name="e">Parametr zawierający informację o wydarzeniu(wyświetlienie informacji).</param>
         public void Single_Clear_Click(object sender, RoutedEventArgs e)
         {
             if(textBlock.Text.Length > 0)
@@ -60,7 +70,11 @@ namespace Kalkulator
             if(textBlock.Text == "")
                 textBlock.Text = "0";
         }
-
+        /// <summary>
+        /// Funkcja która wylicza podstawowe funkcje matematyczne jednego argumentu lub określa funkcje matematyczne dwóch argumentów (pracuje w kombinacji z Eaquals_Click()) w zależności od operacji.
+        /// </summary>
+        /// <param name="sender">Parametr , który odwoluje się do obiektu.</param>
+        /// <param name="e">Parametr zawierający informację o wydarzeniu(wyświetlienie informacji).</param>
         public void Basic_Arithmetic_Click(object sender, RoutedEventArgs e)
         {
             Button num = (Button)sender;
@@ -97,7 +111,11 @@ namespace Kalkulator
             else
                 label.Content = System.Convert.ToString(result) + " " + operation;
         }
-
+        /// <summary>
+        /// Funkcja która wylicza podstawowe funkcje matematyczne dwóch argumentów.
+        /// </summary>
+        /// <param name="sender">Parametr , który odwoluje się do obiektu.</param>
+        /// <param name="e">Parametr zawierający informację o wydarzeniu(wyświetlienie informacji).</param>
         public void Eaquals_Click(object sender, RoutedEventArgs e)
         {
             label.Content = "";
